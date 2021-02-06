@@ -1,13 +1,101 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "system-ui";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  scroll-snap-type: y mandatory;
+}
+
+.app {
+  display: grid;
+  place-items: center;
+  background-color: black;
+  height: 100vh;
+}
+
+.video_container {
+  position: relative;
+  width: 340px;
+  scroll-snap-type: y mandatory;
+  height: 600px;
+  overflow-y: scroll;
+  border-radius: 10px;
+}
+
+.video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  border-radius: 10px;
+}
+
+.video_container::-webkit-scrollbar {
+  display: none;
+}
+
+.video .video_player {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
+
+.video_footer {
+  position: relative;
+  bottom: 120px;
+  padding: 20px;
+  color: white;
+}
+
+.video_footer .top {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.video_footer .top .info {
+  flex: 1;
+}
+
+.video_footer .disk_logo {
+  filter: invert(1);
+  animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.video_footer .bottom .ticker {
+  position: relative;
+  bottom: 30px;
+  color: white;
+  margin-left: 30px;
+  width: 60%;
+}
+
+.sidebar {
+  position: absolute;
+  top: 40%;
+  color: white;
+  right: 20px;
+}
+
+.sidebar .iconrow {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  font-size: 11px;
 }
